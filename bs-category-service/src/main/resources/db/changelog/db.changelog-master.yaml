@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/create/01-create-categories-table.yaml
+  - include:
+      file: db/changelog/changes/insert/01-insert-into-categories-table.yaml

@@ -1,0 +1,99 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-users-table
+      author: Yaroslav
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: email
+                  value: alice@email.com
+              - column:
+                  name: password
+                  value: $2a$10$vEjGON2nXfnHAlxWEH4bKunFzAPNNj80A2XPpQsenfF8MicVa9vH6
+              - column:
+                  name: first_name
+                  value: Alice
+              - column:
+                  name: last_name
+                  value: Smith
+              - column:
+                  name: shipping_address
+                  value: 3828 Piermont Dr NE, Albuquerque
+
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: email
+                  value: bob@email.com
+              - column:
+                  name: password
+                  value: $2a$10$vEjGON2nXfnHAlxWEH4bKunFzAPNNj80A2XPpQsenfF8MicVa9vH6
+              - column:
+                  name: first_name
+                  value: Bob
+              - column:
+                  name: last_name
+                  value: Johnson
+              - column:
+                  name: shipping_address
+                  value: 1234 Elm St, Springfield
+
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: email
+                  value: carol@email.com
+              - column:
+                  name: password
+                  value: $2a$10$vEjGON2nXfnHAlxWEH4bKunFzAPNNj80A2XPpQsenfF8MicVa9vH6
+              - column:
+                  name: first_name
+                  value: Carol
+              - column:
+                  name: last_name
+                  value: Williams
+              - column:
+                  name: shipping_address
+                  value: 5678 Oak Rd, Metropolis
+
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: email
+                  value: dave@email.com
+              - column:
+                  name: password
+                  value: $2a$10$vEjGON2nXfnHAlxWEH4bKunFzAPNNj80A2XPpQsenfF8MicVa9vH6
+              - column:
+                  name: first_name
+                  value: Dave
+              - column:
+                  name: last_name
+                  value: Brown
+              - column:
+                  name: shipping_address
+                  value: 9101 Pine Ave, Gotham
+
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: email
+                  value: emma@email.com
+              - column:
+                  name: password
+                  value: $2a$10$vEjGON2nXfnHAlxWEH4bKunFzAPNNj80A2XPpQsenfF8MicVa9vH6
+              - column:
+                  name: first_name
+                  value: Emma
+              - column:
+                  name: last_name
+                  value: Davis
+              - column:
+                  name: shipping_address
+                  value: 1357 Maple Ln, Star City

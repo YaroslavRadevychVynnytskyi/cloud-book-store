@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-books_categories-table
+      author: Yaroslav
+      changes:
+        - insert:
+            tableName: books_categories
+            columns:
+              - column:
+                  name: book_id
+                  value: 1
+              - column:
+                  name: category_id
+                  value: 5  # Harry Potter belongs to Fantasy
+        - insert:
+            tableName: books_categories
+            columns:
+              - column:
+                  name: book_id
+                  value: 2
+              - column:
+                  name: category_id
+                  value: 5  # The Hobbit belongs to Fantasy
+        - insert:
+            tableName: books_categories
+            columns:
+              - column:
+                  name: book_id
+                  value: 3
+              - column:
+                  name: category_id
+                  value: 1  # To Kill a Mockingbird belongs to Drama
+        - insert:
+            tableName: books_categories
+            columns:
+              - column:
+                  name: book_id
+                  value: 4
+              - column:
+                  name: category_id
+                  value: 3  # 1984 belongs to Science Fiction
+        - insert:
+            tableName: books_categories
+            columns:
+              - column:
+                  name: book_id
+                  value: 5
+              - column:
+                  name: category_id
+                  value: 4  # Pride and Prejudice belongs to Romance

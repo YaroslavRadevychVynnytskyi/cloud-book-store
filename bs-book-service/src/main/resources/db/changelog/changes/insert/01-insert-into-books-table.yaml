@@ -1,0 +1,110 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-books-table
+      author: Yaroslav
+      changes:
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: "Harry Potter"
+              - column:
+                  name: author
+                  value: "J. K. Rowling"
+              - column:
+                  name: isbn
+                  value: "geroigjeriogjeiowjfiogjiwfj2"
+              - column:
+                  name: price
+                  value: 60
+              - column:
+                  name: description
+                  value: "Harry Potter follows a young wizard's journey at Hogwarts School of Witchcraft and Wizardry. With friends, he battles dark forces and uncovers secrets about his magical world."
+              - column:
+                  name: cover_image
+                  value: "https://image.webp"
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: "The Hobbit"
+              - column:
+                  name: author
+                  value: "J.R.R. Tolkien"
+              - column:
+                  name: isbn
+                  value: "978-0261103283"
+              - column:
+                  name: price
+                  value: 25
+              - column:
+                  name: description
+                  value: "A fantasy adventure that follows Bilbo Baggins, a hobbit who embarks on an epic quest to help a group of dwarves reclaim their homeland from a dragon."
+              - column:
+                  name: cover_image
+                  value: "https://example.com/thehobbit.webp"
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: "To Kill a Mockingbird"
+              - column:
+                  name: author
+                  value: "Harper Lee"
+              - column:
+                  name: isbn
+                  value: "978-0060935467"
+              - column:
+                  name: price
+                  value: 18
+              - column:
+                  name: description
+                  value: "A novel set in the Deep South, addressing serious issues of race and injustice through the eyes of a young girl named Scout Finch."
+              - column:
+                  name: cover_image
+                  value: "https://example.com/tokillamockingbird.webp"
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: "1984"
+              - column:
+                  name: author
+                  value: "George Orwell"
+              - column:
+                  name: isbn
+                  value: "978-0451524935"
+              - column:
+                  name: price
+                  value: 20
+              - column:
+                  name: description
+                  value: "A dystopian novel that explores the dangers of totalitarianism, surveillance, and censorship in a world ruled by a tyrannical regime."
+              - column:
+                  name: cover_image
+                  value: "https://example.com/1984.webp"
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: "Pride and Prejudice"
+              - column:
+                  name: author
+                  value: "Jane Austen"
+              - column:
+                  name: isbn
+                  value: "978-1503290563"
+              - column:
+                  name: price
+                  value: 15
+              - column:
+                  name: description
+                  value: "A classic novel that delves into issues of marriage, class, and social expectations through the story of Elizabeth Bennet and Mr. Darcy."
+              - column:
+                  name: cover_image
+                  value: "https://example.com/prideandprejudice.webp"
