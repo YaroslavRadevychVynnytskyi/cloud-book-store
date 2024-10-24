@@ -1,6 +1,8 @@
 package com.application.command;
 
 import com.application.core.events.ProductCreatedEvent;
+import com.nerdysoft.core.commands.ReserveProductCommand;
+import com.nerdysoft.events.ProductReservedEvent;
 import java.math.BigDecimal;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
@@ -21,18 +23,26 @@ public class ProductAggregate {
 
     @CommandHandler
     public ProductAggregate(CreateProductCommand createProductCommand) {
-        if (createProductCommand.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalStateException("Product price can not be less or equal than zero!");
-        }
-
-        if (createProductCommand.getTitle().isBlank()) {
-            throw new IllegalStateException("Product title can not be blank!");
-        }
-
         ProductCreatedEvent productCreatedEvent = new ProductCreatedEvent();
         BeanUtils.copyProperties(createProductCommand, productCreatedEvent);
 
         AggregateLifecycle.apply(productCreatedEvent);
+    }
+
+    @CommandHandler
+    public void handle(ReserveProductCommand reserveProductCommand) {
+        if (quantity < reserveProductCommand.getQuantity()) {
+            throw new IllegalStateException("Insufficient number if items in stock");
+        }
+
+        ProductReservedEvent productReservedEvent = ProductReservedEvent.builder()
+                .productId(reserveProductCommand.getProductId())
+                .quantity(reserveProductCommand.getQuantity())
+                .orderId(reserveProductCommand.getOrderId())
+                .userId(reserveProductCommand.getUserId())
+                .build();
+
+        AggregateLifecycle.apply(productReservedEvent);
     }
 
     @EventSourcingHandler
@@ -43,4 +53,8 @@ public class ProductAggregate {
         this.quantity = productCreatedEvent.getQuantity();
     }
 
+    @EventSourcingHandler
+    public void on(ProductReservedEvent productReservedEvent) {
+        this.quantity -= productReservedEvent.getQuantity();
+    }
 }

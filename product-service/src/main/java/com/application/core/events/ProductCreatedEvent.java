@@ -3,6 +3,7 @@ package com.application.core.events;
 import java.math.BigDecimal;
 import lombok.Data;
 
+
 @Data
 public class ProductCreatedEvent {
     private String productId;

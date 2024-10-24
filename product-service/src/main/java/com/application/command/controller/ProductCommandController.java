@@ -1,7 +1,8 @@
-package com.application.controller;
+package com.application.command.controller;
 
 import com.application.command.CreateProductCommand;
-import com.application.rest.CreateProductRestModel;
+import com.application.dto.CreateProductRequestDto;
+import jakarta.validation.Valid;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.axonframework.commandhandling.gateway.CommandGateway;
@@ -14,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/products")
 @RequiredArgsConstructor
-public class ProductController {
+public class ProductCommandController {
     private final CommandGateway commandGateway;
 
     @PostMapping
-    public ResponseEntity<String> createProduct(@RequestBody CreateProductRestModel createProductRestModel) {
+    public ResponseEntity<String> createProduct(@RequestBody @Valid CreateProductRequestDto createProductRestModel) {
 
         CreateProductCommand createProductCommand = CreateProductCommand.builder()
                 .price(createProductRestModel.getPrice())
@@ -27,13 +28,6 @@ public class ProductController {
                 .productId(UUID.randomUUID().toString())
                 .build();
 
-        String returnValue;
-        try {
-            returnValue = commandGateway.sendAndWait(createProductCommand);
-        } catch (Exception e) {
-            returnValue = e.getLocalizedMessage();
-        }
-
-        return ResponseEntity.ok(returnValue);
+        return ResponseEntity.ok(commandGateway.sendAndWait(createProductCommand));
     }
 }
