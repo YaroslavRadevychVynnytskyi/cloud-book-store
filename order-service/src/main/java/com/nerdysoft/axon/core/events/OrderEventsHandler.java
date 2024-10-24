@@ -16,4 +16,9 @@ public class OrderEventsHandler {
     public void on(OrderCreatedEvent event) {
         orderService.createOrder(event);
     }
+
+    @EventHandler
+    public void on(OrderApprovedEvent event) {
+        orderService.approveOrder(event);
+    }
 }
